@@ -1,0 +1,212 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #0b0b1e;
+    color: #f1f5f9;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Galaxy Theme Animations */
+.cosmic-nebula {
+  background: radial-gradient(circle at 20% 30%, rgba(107, 33, 168, 0.4) 0%, transparent 40%),
+              radial-gradient(circle at 80% 70%, rgba(13, 148, 136, 0.35) 0%, transparent 40%),
+              radial-gradient(circle at 50% 50%, rgba(30, 41, 59, 0.9) 0%, #030014 100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+}
+
+/* Starfield Animation */
+.stars-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: twinkle var(--duration, 4s) infinite ease-in-out var(--delay, 0s);
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: var(--opacity, 0.8); transform: scale(1.2); }
+}
+
+/* Aurora & Glowing Gradients */
+.aurora-glow {
+  filter: blur(100px);
+  opacity: 0.15;
+  mix-blend-mode: screen;
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(107, 33, 168, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.glass-input:focus {
+  border-color: rgba(13, 148, 136, 0.6);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 10px rgba(13, 148, 136, 0.2);
+}
+
+/* Floating Planets styling */
+.cosmic-planet-purple {
+  background: radial-gradient(circle at 30% 30%, #a855f7 0%, #6b21a8 50%, #1e1b4b 100%);
+  box-shadow: 0 0 40px rgba(168, 85, 247, 0.4);
+}
+
+.cosmic-planet-teal {
+  background: radial-gradient(circle at 30% 30%, #2dd4bf 0%, #0d9488 50%, #115e59 100%);
+  box-shadow: 0 0 40px rgba(45, 212, 191, 0.4);
+}
+
+.float-animation {
+  animation: float 8s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-20px) rotate(10deg); }
+}
+
+.float-reverse {
+  animation: floatRev 10s ease-in-out infinite alternate;
+}
+
+@keyframes floatRev {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(20px) rotate(-15deg); }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Dynamic Theme Overrides */
+.theme-light {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+.theme-light .glass-panel {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+  box-shadow: 0 8px 30px 0 rgba(15, 23, 42, 0.04) !important;
+  color: #1e293b !important;
+}
+.theme-light .glass-panel h3, 
+.theme-light .glass-panel h2, 
+.theme-light .glass-panel h1, 
+.theme-light .glass-panel span,
+.theme-light .glass-panel th,
+.theme-light .glass-panel td {
+  color: #0f172a !important;
+}
+.theme-light .glass-panel p,
+.theme-light .glass-panel .text-slate-400,
+.theme-light .glass-panel .text-slate-500 {
+  color: #475569 !important;
+}
+.theme-light .glass-input {
+  background: #f1f5f9 !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  color: #0f172a !important;
+}
+.theme-light .glass-input:focus {
+  border-color: #0d9488 !important;
+  box-shadow: 0 0 8px rgba(13, 148, 136, 0.2) !important;
+}
+.theme-light select.glass-input option {
+  background: white !important;
+  color: #0f172a !important;
+}
+.theme-light .bg-white\/5 {
+  background: #f1f5f9 !important;
+}
+.theme-light .bg-white\/10 {
+  background: #e2e8f0 !important;
+}
+.theme-light .border-white\/10, 
+.theme-light .border-white\/5 {
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+.theme-light .divide-white\/5 > * {
+  border-color: rgba(15, 23, 42, 0.06) !important;
+}
+.theme-light text-slate-300, 
+.theme-light .text-slate-300 {
+  color: #334155 !important;
+}
+.theme-light text-slate-400, 
+.theme-light .text-slate-400 {
+  color: #475569 !important;
+}
+.theme-light text-white, 
+.theme-light .text-white {
+  color: #0f172a !important;
+}
+
+.theme-dark {
+  background-color: #09090b !important;
+  color: #f4f4f5 !important;
+}
+.theme-dark .glass-panel {
+  background: rgba(24, 24, 27, 0.5) !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.theme-space {
+  background-color: #020205 !important;
+  color: #f1f5f9 !important;
+}
+.theme-space .glass-panel {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
